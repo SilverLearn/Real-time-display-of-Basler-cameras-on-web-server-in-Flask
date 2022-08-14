@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="/static/css/bootstrap.rtl.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+    <title>Novinilya</title>
+  </head>
+  <body>
+   
+    <section>
+        <div class="container">
+          
+            <div class="card">
+              <div class="card-header">مشاهده آنلاین دوربین </div>
+              <div class="card-body">
+                <div style="text-align: center;align-content: center;">
+                    <img src="{{ url_for('video') }}" class="corner" width="100%" height="auto"></img>                            </div>
+              </div>
+              <!-- <form method="POST" action="" name="exposure" id="exposure">
+                <input type="text" name="longitude" id="longitude" />
+                <input type="submit" value="Submit" />
+            </form> -->
+              </div> 
+              <div class="card-footer"></div>
+            </div>
+          </div>
+     
+    </section>
+    <div class="container">
+        <!-- <h2>تنظیمات</h2> -->
+        <div class="card">
+          <div class="card-header">تنظیمات</div>
+          <div class="card-body">
+              <table style="border: 2px solid;width: 100%;text-align: center;align-items: center;">
+                  <tr>
+                     
+                      <td style="border: 2px solid;">
+                        <p class="btn btn-warning" style="width: 100%;">Width</p>
+                        Current : {{ current_w}}
+                        Max : {{max_w}} 
+                        Min : {{min_w}}
+                        <form method="POST" action="" id="width11" name="width11">
+                            <input type="text" name="text_width" id="text_width" />
+                            <input type="submit" value="Change" />
+                        </form>
+                      </td>
+                      <td style="border: 2px solid;">
+                        <p class="btn btn-warning" style="width: 100%;">Height</p>
+                        Current  : {{ current_h}}
+                        Max : {{max_h}} 
+                        Min : {{min_h}}
+                        <form method="POST" action="" id="height1" name="height1">
+                            <input type="text" name="text_height" id="text_height" />
+                            <input type="submit" value="Change" />
+                        </form>
+                      </td>
+                      <td style="border: 2px solid;">
+                        <p class="btn btn-warning" style="width: 100%;">OffsetX</p>
+                        Current : {{ current_offx}}
+                        Max : {{max_ox}} 
+                        Min : {{min_ox}}
+                        <form method="POST" action="" id="offsetx" name="offsetx">
+                            <input type="text" name="text_offsetx" id="text_offsetx" />
+                            <input type="submit" value="Change" />
+                        </form>
+                      </td>
+                      <td style="border: 2px solid;">
+                        <p class="btn btn-warning" style="width: 100%;">OffsetY</p>
+                        Current : {{ current_offy}}
+                        Max : {{max_oy}} 
+                        Min : {{min_oy}}
+                        <form method="POST" action="" id="offsety" name="offsety">
+                            <input type="text" name="text_offsety" id="text_offsety" />
+                            <input type="submit" value="Change" />
+                        </form>
+                      </td>
+                  </tr>
+
+                  <tr>
+                     
+                    <td style="border: 2px solid;">
+                      <p class="btn btn-warning" style="width: 100%;">Gain</p>
+                      Current : {{ current_g}}
+                      Max : {{max_g}} 
+                      Min : {{min_g}}
+                      <form method="POST" action="" id="gain" name="gain">
+                          <input type="text" name="text_gain" id="text_gain" />
+                          <input type="submit" value="Change" />
+                      </form>
+                    </td>
+                    <td style="border: 2px solid;">
+                      <p class="btn btn-warning" style="width: 100%;">BlackLevel</p>
+                      Current : {{ current_b}}
+                      Max : {{max_b}} 
+                      Min : {{min_b}}
+                      <form method="POST" action="" id="blacklevel" name="blacklevel">
+                          <input type="text" name="text_blacklevel" id="text_blacklevel" />
+                          <input type="submit" value="Change" />
+                      </form>
+                    </td>
+                    <td style="border: 2px solid;">
+                      <p class="btn btn-warning" style="width: 100%;">Gamma</p>
+                      Current : {{ current_gamma}}
+                      Max : {{max_gamma}} 
+                      Min : {{min_gamma}}
+                      <form method="POST" action="" id="gamma" name="gamma">
+                          <input type="text" name="text_gamma" id="text_gamma" />
+                          <input type="submit" value="Change" />
+                      </form>
+                    </td>
+                    <td style="border: 2px solid;">
+                      <p class="btn btn-warning" style="width: 100%;">Digital Shift</p>
+                      Current : {{ current_offx}}
+                      Max : {{max_digital}} 
+                      Min : {{min_digital}}
+                      <form method="POST" action="" id="digital" name="digital">
+                          <input type="text" name="text_digital" id="text_digital" />
+                          <input type="submit" value="Change" />
+                      </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 2px solid;">
+                        <p class="btn btn-warning" style="width: 100%;">Exposure</p>
+                        Current : {{ current_exp}}
+                        Max : {{max_exposure}} 
+                        Min : {{min_exposure}}
+                        <form method="POST" action="" id="exposure" name="exposure">
+                            <input type="text" name="text_exposure" id="text_exposure" />
+                            <input type="submit" value="Change" />
+                        </form>
+                      </td>
+                </tr>
+              </table>
+          </div> 
+          <div class="card-footer">Reach before 4PM</div>
+        </div>
+      </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jquery.js"></script>
+    <!-- <script src="/static/js/bootstrap.min.js"></script> -->
+
+    <script>
+        $(document).ready(function () {
+  $("#exposure").submit(function (event) {
+   
+      var text_exposure = $("#text_exposure").val();
+
+    
+
+    $.ajax({
+      type: "POST",
+      url: "/exposure",
+      data: {text_exposure:text_exposure},
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      console.log(data);
+    });
+
+    event.preventDefault();
+  });
+
+
+    //---------------------
+
+    $("#width11").submit(function (event) {
+   
+   var text_width = $("#text_width").val();
+
+ 
+
+ $.ajax({
+   type: "POST",
+   url: "/width1",
+   data: {text_width:text_width},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+
+ event.preventDefault();
+});
+//------------------------------------------
+$("#height1").submit(function (event) {
+   
+   var text_height = $("#text_height").val();
+ $.ajax({
+   type: "POST",
+   url: "/height1",
+   data: {text_height:text_height},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+
+ event.preventDefault();
+});
+//------------------------------------------
+//------------------------------------------
+$("#digital").submit(function (event) {
+   
+   var text_digital = $("#text_digital").val();
+ $.ajax({
+   type: "POST",
+   url: "/digital",
+   data: {text_digital:text_digital},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+
+ event.preventDefault();
+});
+//------------------------------------------
+//------------------------------------------
+$("#gamma").submit(function (event) {
+   
+   var text_gamma = $("#text_gamma").val();
+ $.ajax({
+   type: "POST",
+   url: "/gamma",
+   data: {text_gamma:text_gamma},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+ event.preventDefault();
+});
+//------------------------------------------
+//------------------------------------------
+$("#offsetx").submit(function (event) {
+   
+   var text_offsetx = $("#text_offsetx").val();
+
+ 
+
+ $.ajax({
+   type: "POST",
+   url: "/offsetx",
+   data: {text_offsetx:text_offsetx},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+
+ event.preventDefault();
+});
+//------------------------------------------
+
+//------------------------------------------
+$("#offsety").submit(function (event) {
+   
+   var text_offsety = $("#text_offsety").val();
+
+ 
+
+ $.ajax({
+   type: "POST",
+   url: "/offsety",
+   data: {text_offsety:text_offsety},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+
+ event.preventDefault();
+});
+//------------------------------------------
+//------------------------------------------
+$("#gain").submit(function (event) {
+   
+   var text_gain = $("#text_gain").val();
+
+ 
+
+ $.ajax({
+   type: "POST",
+   url: "/gain",
+   data: {text_gain:text_gain},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+
+ event.preventDefault();
+});
+//------------------------------------------
+$("#blacklevel").submit(function (event) {
+   
+   var text_blacklevel = $("#text_blacklevel").val();
+
+ 
+
+ $.ajax({
+   type: "POST",
+   url: "/blacklevel",
+   data: {text_blacklevel:text_blacklevel},
+   dataType: "json",
+   encode: true,
+ }).done(function (data) {
+   console.log(data);
+ });
+ 
+
+ event.preventDefault();
+});
+//------------------------------------------
+
+});
+    </script>
+
+</body>
+
+   
+</html>

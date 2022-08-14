@@ -1,0 +1,14 @@
+@font-face {
+  font-family: iransans24;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/static/fonts/iransansd41d.eot");
+  src: url("/static/fonts/iransans.woff") format("woff"),
+    url("/static/fonts/iransans.ttf") format("ttf"),
+    url("/static/fonts/iransans.woff2") format("woff2");
+}
+
+* {
+  font-family: iransans24;
+  
+}
