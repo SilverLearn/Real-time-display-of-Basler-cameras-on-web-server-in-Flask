@@ -5,7 +5,7 @@
 
 ## Change the following features in Ajax : 
 
-[text]  1 - width 
+# 1 - width 
 # 2 - Height
 # 3 - offsetX
 # 4 - offsetY
